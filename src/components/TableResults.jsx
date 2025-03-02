@@ -44,7 +44,7 @@ const TableResults = ({ lab_results }) => {
           dataSource={formattedData}
           pagination={false}
           bordered={false}
-          scroll={{ y: 200, x: "max-content" }} // ✅ Đảm bảo không tạo cột scroll riêng
+          scroll={{ y: 170, x: "max-content" }} // ✅ Đảm bảo không tạo cột scroll riêng
           className="custom-table custom-scrollbar"
           showHeader={false}
         />
