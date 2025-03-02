@@ -5,7 +5,7 @@ import MoreIcon from "../assets/image/more_horiz_FILL0_wght300_GRAD0_opsz24.svg"
 
 const ListPatients = ({ patients }) => {
   return (
-    <div className="p-[20px] bg-white rounded-[10px] shadow-md w-full">
+    <div className="p-[20px] bg-white rounded-[16px] shadow-md w-full">
       <div className="sticky top-[-25px] bg-white z-10 p-3">
         <div className="flex justify-between items-center">
           <h2 className="font-bold text-[24px]">Patients</h2>

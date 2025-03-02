@@ -6,8 +6,8 @@ import CalendarIcon from "../assets/image/calendar_today_FILL0_wght300_GRAD0_ops
 import ChatIcon from "../assets/image/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg";
 import IconTransaction from "../assets/image/credit_card_FILL0_wght300_GRAD0_opsz24.svg";
 import AvartarSenior from "../assets/image/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png";
-import SettingIcon from "../assets/image/settings_FILL0_wght300_GRAD0_opsz24.png";
-import MoreIcon from "../assets/image/more_vert_FILL0_wght300_GRAD0_opsz24.png";
+import SettingIcon from "../assets/image/settings_FILL0_wght300_GRAD0_opsz24.svg";
+import MoreIcon from "../assets/image/more_vert_FILL0_wght300_GRAD0_opsz24.svg";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const Header = () => {
