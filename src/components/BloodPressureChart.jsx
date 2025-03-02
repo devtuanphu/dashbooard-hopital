@@ -87,7 +87,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
     responsive: true,
     maintainAspectRatio: false,
     layout: {
-      padding: { left: 10, right: 10, top: 10, bottom: 10 },
+      padding: { left: 10, right: 10, top: 0, bottom: 0 },
     },
     plugins: {
       legend: { display: false },
@@ -109,7 +109,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
   };
 
   return (
-    <div className="p-6 bg-[#F4F0FE] rounded-lg shadow-md w-full flex flex-col gap-4">
+    <div className="p-[16px] bg-[#F4F0FE] rounded-lg shadow-md w-full flex flex-col gap-4">
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-3 md:col-span-2">
           <div className="pb-4 flex justify-between">
@@ -125,7 +125,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
               </div>
             </div>
           </div>
-          <div className="h-[298px]">
+          <div className="h-[253px]">
             <Line data={chartData} options={options} />
           </div>
         </div>

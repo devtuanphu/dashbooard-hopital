@@ -47,3 +47,41 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #0f2d3e #f1f1f1;
 }
+.ant-table-cell {
+  padding: 10px !important;
+  text-align: start !important;
+  padding-left: 15px !important;
+  padding-left: 15px !important;
+}
+.ant-table-thead .ant-table-cell {
+  padding: 15px !important;
+  text-align: start !important;
+  font-weight: bold !important;
+}
+.ant-table-thead {
+  border-radius: 24px !important;
+}
+
+.ant-table-thead .ant-table-cell:first-child {
+  border-top-left-radius: 24px !important;
+
+  border-bottom-left-radius: 24px !important;
+}
+.ant-table-thead .ant-table-cell:nth-last-child(2) {
+  border-top-right-radius: 24px !important;
+  border-bottom-right-radius: 24px !important;
+}
+
+.custom-table .ant-table-cell-scrollbar {
+  display: none !important;
+}
+
+/* Đưa scrollbar vào cột cuối cùng */
+.custom-table .ant-table-body {
+  overflow-y: auto !important;
+}
+
+/* Đảm bảo bảng không bị lệch */
+.custom-table-container {
+  overflow: hidden !important;
+}

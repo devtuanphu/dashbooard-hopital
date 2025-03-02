@@ -6,7 +6,7 @@ const columns = [
   {
     dataIndex: "value",
     key: "value",
-    className: "!font-bold !text-[#072635] custom-font-family",
+    className: "!text-[#072635] custom-font-family",
     render: (text) => (
       <div className="flex justify-between items-center w-full">
         <span>{text}</span>
@@ -38,14 +38,17 @@ const TableResults = ({ lab_results }) => {
   return (
     <div className="p-6 bg-white rounded-lg shadow-md w-full">
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">Lab Results</h2>
-      <Table
-        columns={columns}
-        dataSource={formattedData}
-        pagination={false}
-        bordered={false}
-        scroll={{ y: 200 }}
-        className="custom-table custom-scrollbar"
-      />
+      <div className="custom-table-container">
+        <Table
+          columns={columns}
+          dataSource={formattedData}
+          pagination={false}
+          bordered={false}
+          scroll={{ y: 200, x: "max-content" }} // ✅ Đảm bảo không tạo cột scroll riêng
+          className="custom-table custom-scrollbar"
+          showHeader={false}
+        />
+      </div>
     </div>
   );
 };

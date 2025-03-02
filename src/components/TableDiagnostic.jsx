@@ -6,7 +6,7 @@ const columns = [
     title: "Problem/Diagnosis",
     dataIndex: "name",
     key: "name",
-    className: "!font-bold !text-[#072635] custom-font-family",
+    className: " !text-[#072635] custom-font-family",
   },
   {
     title: "Description",
@@ -44,7 +44,7 @@ const TableDiagnostic = ({ diagnosticList }) => {
   }));
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md w-full">
+    <div className="pt-[20px] pb-[10px] px-[20px] bg-white rounded-lg shadow-md w-full">
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">
         Diagnostic List
       </h2>
@@ -53,7 +53,7 @@ const TableDiagnostic = ({ diagnosticList }) => {
         dataSource={formattedData}
         pagination={false}
         bordered={false}
-        scroll={{ y: 200 }} // Cuộn dọc
+        scroll={{ y: 180 }}
         className="custom-table"
       />
     </div>

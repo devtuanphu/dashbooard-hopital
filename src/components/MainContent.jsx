@@ -75,7 +75,7 @@ const MainContent = ({ jessicaData }) => {
 
   return (
     <div className="">
-      <div className="bg-[#fff] p-[20px] md:flex-1 ">
+      <div className="bg-[#fff] p-[20px] md:flex-1 rounded-[16px] ">
         <h1 className="pb-4 font-bold text-[#072635] text-[24px]">
           Diagnosis History
         </h1>

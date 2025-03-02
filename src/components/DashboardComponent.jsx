@@ -31,15 +31,15 @@ const DashboardComponent = () => {
 
   return (
     <div className="grid grid-cols-12 gap-[33px]  h-full grid-rows-1">
-      <div className="order-2 xl:order-0 col-span-12 xl:col-span-3 flex flex-col h-full">
+      <div className="order-2 xl:order-0 col-span-12 xl:col-span-3 flex flex-col h-full mt-4">
         <ListPatients patients={patients} />
       </div>
 
-      <div className="order-0 xl:order-1 col-span-12 xl:col-span-6 flex flex-col h-full">
+      <div className="order-0 xl:order-1 col-span-12 xl:col-span-6 flex flex-col h-full mt-4">
         <MainContent jessicaData={jessicaData} />
       </div>
 
-      <div className="order-1 xl:order-2 col-span-12 xl:col-span-3 flex flex-col h-full">
+      <div className="order-1 xl:order-2 col-span-12 xl:col-span-3 max-h-[930px]">
         <DetailPatients jessicaData={jessicaData} />
       </div>
     </div>
