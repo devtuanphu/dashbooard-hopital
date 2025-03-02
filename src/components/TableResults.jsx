@@ -42,9 +42,9 @@ const TableResults = ({ lab_results }) => {
         columns={columns}
         dataSource={formattedData}
         pagination={false}
-        showHeader={false}
         bordered={false}
-        className="custom-table custom-scrollbar overflow-auto max-h-[300px]"
+        scroll={{ y: 200 }}
+        className="custom-table custom-scrollbar"
       />
     </div>
   );

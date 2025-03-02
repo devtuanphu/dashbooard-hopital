@@ -5,11 +5,16 @@ import MoreIcon from "../assets/image/more_horiz_FILL0_wght300_GRAD0_opsz24.png"
 
 const ListPatients = ({ patients }) => {
   return (
-    <div className="p-[20px] bg-white rounded-[10px] shadow-md w-full  xl:max-h-[85vh] overflow-y-auto custom-scrollbar">
-      <div className="flex justify-between items-center mb-3">
-        <h2 className="font-bold text-[24px]">Patients</h2>
-        <img src={IconSearch} width="18px" height="18px" alt="" />
+    <div className="p-[20px] bg-white rounded-[10px] shadow-md w-full xl:max-h-[117vh] overflow-y-auto custom-scrollbar">
+      {/* Sticky Header */}
+      <div className="sticky top-[-25px] bg-white z-10 p-3">
+        <div className="flex justify-between items-center">
+          <h2 className="font-bold text-[24px]">Patients</h2>
+          <img src={IconSearch} width="18px" height="18px" alt="" />
+        </div>
       </div>
+
+      {/* Danh sách bệnh nhân */}
       <List
         itemLayout="horizontal"
         dataSource={patients}

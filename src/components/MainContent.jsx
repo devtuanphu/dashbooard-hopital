@@ -74,7 +74,7 @@ const MainContent = ({ jessicaData }) => {
   }, [jessicaData]);
 
   return (
-    <div className="xl:h-[88vh] custom-scrollbar overflow-y-auto flex flex-col">
+    <div className="">
       <div className="bg-[#fff] p-[20px] md:flex-1 ">
         <h1 className="pb-4 font-bold text-[#072635] text-[24px]">
           Diagnosis History
@@ -92,7 +92,7 @@ const MainContent = ({ jessicaData }) => {
         </div>
       </div>
 
-      <div className="pt-[20px] xl:flex-1 ">
+      <div className="py-[20px] xl:flex-1 ">
         <TableDiagnostic diagnosticList={diagnosticList} />
       </div>
     </div>

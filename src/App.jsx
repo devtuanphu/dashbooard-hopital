@@ -6,9 +6,8 @@ function App() {
   return (
     <>
       <Header />
-      <div className="overflow-hidden">
-        <DashBoard />
-      </div>
+
+      <DashBoard />
     </>
   );
 }

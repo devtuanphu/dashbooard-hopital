@@ -50,14 +50,12 @@ export const getJessicaTaylor = async () => {
 
 export const getAverageBloodPressure = async () => {
   try {
-    // Lấy 6 tháng gần nhất
     const recentRecords = await getRecentDiagnosisHistory();
 
     if (!recentRecords || recentRecords.length === 0) {
       throw new Error("Không có dữ liệu huyết áp trong 6 tháng gần nhất");
     }
 
-    // Lọc ra các bản ghi có dữ liệu huyết áp
     const bloodPressureRecords = recentRecords.filter(
       (record) => record.blood_pressure
     );

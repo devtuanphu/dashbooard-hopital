@@ -23,3 +23,27 @@ body {
 .custom-font-family {
   font-family: "Manrope", sans-serif;
 }
+/* Tùy chỉnh thanh cuộn của Ant Design Table */
+.custom-table .ant-table-body::-webkit-scrollbar {
+  width: 6px; /* Độ rộng thanh cuộn */
+}
+
+.custom-table .ant-table-body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền */
+  border-radius: 3px;
+}
+
+.custom-table .ant-table-body::-webkit-scrollbar-thumb {
+  background: #0f2d3e; /* Màu thanh kéo */
+  border-radius: 3px;
+}
+
+.custom-table .ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: #0c1f2b; /* Màu khi hover */
+}
+
+/* Hỗ trợ Firefox */
+.custom-table .ant-table-body {
+  scrollbar-width: thin;
+  scrollbar-color: #0f2d3e #f1f1f1;
+}

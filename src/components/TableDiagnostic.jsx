@@ -44,16 +44,17 @@ const TableDiagnostic = ({ diagnosticList }) => {
   }));
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md w-full ">
+    <div className="p-6 bg-white rounded-lg shadow-md w-full">
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">
         Diagnostic List
       </h2>
       <Table
         columns={columns}
-        dataSource={formattedData} // Dữ liệu từ diagnosticList
+        dataSource={formattedData}
         pagination={false}
         bordered={false}
-        className="custom-table custom-scrollbar overflow-auto md:max-h-[300px] "
+        scroll={{ y: 200 }} // Cuộn dọc
+        className="custom-table"
       />
     </div>
   );
