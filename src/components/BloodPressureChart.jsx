@@ -37,8 +37,26 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
           new Date(`${b.month} 1, ${b.year}`)
       );
 
+      const formatMonth = (month) => {
+        const months = {
+          January: "Jan",
+          February: "Feb",
+          March: "Mar",
+          April: "Apr",
+          May: "May",
+          June: "Jun",
+          July: "Jul",
+          August: "Aug",
+          September: "Sep",
+          October: "Oct",
+          November: "Nov",
+          December: "Dec",
+        };
+        return months[month] || month;
+      };
+
       const labels = sortedHistory.map(
-        (record) => `${record.month}, ${record.year}`
+        (record) => `${formatMonth(record.month)}, ${record.year}`
       );
 
       const systolicValues = sortedHistory.map(

@@ -20,6 +20,12 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #0c1f2b;
 }
+
 .custom-font-family {
   font-family: "Manrope", sans-serif;
+}
+
+.ant-list,
+.ant-list-item {
+  font-family: "YourFont", sans-serif !important;
 }
