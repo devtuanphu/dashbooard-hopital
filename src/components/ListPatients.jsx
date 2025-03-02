@@ -15,14 +15,13 @@ const ListPatients = ({ patients }) => {
         </div>
       </div>
 
-      {/* Danh sách bệnh nhân có scrollbar sát mép */}
-      <div className="xl:max-h-[930px] overflow-y-auto custom-scrollbar mr-[-16px]">
+      <div className="xl:max-h-[930px] overflow-y-auto custom-scrollbar mr-[-16px] ">
         <List
           itemLayout="horizontal"
           dataSource={patients}
           renderItem={(patient) => (
             <List.Item
-              className={`rounded-lg px-[20px] py-2 flex justify-between items-center cursor-pointer !border-none 
+              className={`rounded-lg px-[20px] py-2 flex justify-between items-center cursor-pointer !border-none  custom-font-family gf
               ${
                 selectedPatient === patient.name ||
                 patient.name === "Jessica Taylor"
@@ -33,7 +32,7 @@ const ListPatients = ({ patients }) => {
             >
               <List.Item.Meta
                 avatar={<Avatar src={patient.profile_picture} size={48} />}
-                title={<span className="font-medium">{patient.name}</span>}
+                title={<span className="font-bold">{patient.name}</span>}
                 description={`${patient.gender}, ${patient.age}`}
               />
               <div>
