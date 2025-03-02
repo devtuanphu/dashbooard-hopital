@@ -85,3 +85,9 @@ body {
 .custom-table-container {
   overflow: hidden !important;
 }
+.custom-scrollbar {
+  padding-right: 10px;
+}
+:where(.css-dev-only-do-not-override-1v613y0).ant-list .ant-list-item {
+  padding: 12px !important;
+}

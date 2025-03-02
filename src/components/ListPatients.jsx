@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { List, Avatar } from "antd";
 import IconSearch from "../assets/image/search_FILL0_wght300_GRAD0_opsz24.svg";
 import MoreIcon from "../assets/image/more_horiz_FILL0_wght300_GRAD0_opsz24.svg";
 
 const ListPatients = ({ patients }) => {
+  const [selectedPatient, setSelectedPatient] = useState(null);
+
   return (
     <div className="p-[20px] bg-white rounded-[16px] shadow-md w-full">
       <div className="sticky top-[-25px] bg-white z-10 p-3">
@@ -13,12 +15,22 @@ const ListPatients = ({ patients }) => {
         </div>
       </div>
 
-      <div className="xl:max-h-[930px] overflow-y-auto pr-[10px] custom-scrollbar">
+      {/* Danh sách bệnh nhân có scrollbar sát mép */}
+      <div className="xl:max-h-[930px] overflow-y-auto custom-scrollbar mr-[-16px]">
         <List
           itemLayout="horizontal"
           dataSource={patients}
           renderItem={(patient) => (
-            <List.Item className="rounded-lg px-4 py-2 flex justify-between items-center">
+            <List.Item
+              className={`rounded-lg px-[20px] py-2 flex justify-between items-center cursor-pointer !border-none 
+              ${
+                selectedPatient === patient.name ||
+                patient.name === "Jessica Taylor"
+                  ? "bg-[#D8FCF7]"
+                  : "hover:bg-[#D8FCF7]"
+              }`}
+              onClick={() => setSelectedPatient(patient.name)}
+            >
               <List.Item.Meta
                 avatar={<Avatar src={patient.profile_picture} size={48} />}
                 title={<span className="font-medium">{patient.name}</span>}

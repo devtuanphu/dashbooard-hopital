@@ -36,7 +36,7 @@ const TableResults = ({ lab_results }) => {
   }));
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md w-full">
+    <div className="p-6 bg-white rounded-[16px] shadow-md w-full">
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">Lab Results</h2>
       <div className="custom-table-container">
         <Table
@@ -44,7 +44,7 @@ const TableResults = ({ lab_results }) => {
           dataSource={formattedData}
           pagination={false}
           bordered={false}
-          scroll={{ y: 200, x: "max-content" }} // ✅ Đảm bảo không tạo cột scroll riêng
+          scroll={{ y: 170, x: "max-content" }}
           className="custom-table custom-scrollbar"
           showHeader={false}
         />
