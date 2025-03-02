@@ -8,6 +8,7 @@ import {
   getAverageHeartRate,
   getAverageRespiratoryRate,
   getAverageTemperature,
+  getRecentDiagnosisHistory,
 } from "../service/Patient";
 
 const MainContent = ({ jessicaData }) => {
@@ -50,19 +51,24 @@ const MainContent = ({ jessicaData }) => {
       console.error(error);
     }
   };
+
+  const getRecentDiagnosisHistoryFC = async () => {
+    try {
+      const data = await getRecentDiagnosisHistory();
+      setDiagnosisHistory(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     getAverageBloodPressureFC();
     getAverageHeartRateFC();
     getAverageRespiratoryRateFC();
     getAverageTemperatureFC();
+    getRecentDiagnosisHistoryFC();
   }, []);
   useEffect(() => {
-    if (
-      jessicaData &&
-      jessicaData.diagnosis_history &&
-      jessicaData.diagnostic_list
-    ) {
-      setDiagnosisHistory(jessicaData.diagnosis_history);
+    if (jessicaData && jessicaData.diagnostic_list) {
       setDiagnosticList(jessicaData.diagnostic_list);
     }
   }, [jessicaData]);
@@ -70,7 +76,7 @@ const MainContent = ({ jessicaData }) => {
   return (
     <div className="xl:h-[88vh] custom-scrollbar overflow-y-auto flex flex-col">
       <div className="bg-[#fff] p-[20px] md:flex-1 ">
-        <h1 className="pb-4 font-bold text-[#71787c] text-[24px]">
+        <h1 className="pb-4 font-bold text-[#072635] text-[24px]">
           Diagnosis History
         </h1>
         <BloodPressureChart

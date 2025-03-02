@@ -28,6 +28,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
     labels: [],
     datasets: [],
   });
+  console.log(diagnosisHistory);
 
   useEffect(() => {
     if (diagnosisHistory && diagnosisHistory.length > 0) {

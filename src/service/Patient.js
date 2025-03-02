@@ -50,17 +50,22 @@ export const getJessicaTaylor = async () => {
 
 export const getAverageBloodPressure = async () => {
   try {
-    const jessica = await getJessicaTaylor();
-    if (!jessica || !jessica.diagnosis_history) {
-      throw new Error("Không tìm thấy lịch sử chẩn đoán của Jessica Taylor");
+    // Lấy 6 tháng gần nhất
+    const recentRecords = await getRecentDiagnosisHistory();
+
+    if (!recentRecords || recentRecords.length === 0) {
+      throw new Error("Không có dữ liệu huyết áp trong 6 tháng gần nhất");
     }
 
-    const bloodPressureRecords = jessica.diagnosis_history.filter(
+    // Lọc ra các bản ghi có dữ liệu huyết áp
+    const bloodPressureRecords = recentRecords.filter(
       (record) => record.blood_pressure
     );
 
     if (bloodPressureRecords.length === 0) {
-      throw new Error("Không có dữ liệu huyết áp hợp lệ");
+      throw new Error(
+        "Không có dữ liệu huyết áp hợp lệ trong 6 tháng gần nhất"
+      );
     }
 
     const totalSystolic = bloodPressureRecords.reduce(
@@ -88,7 +93,7 @@ export const getAverageBloodPressure = async () => {
       },
     };
   } catch (error) {
-    console.error("Lỗi khi tính trung bình huyết áp:", error);
+    console.error("Lỗi khi tính trung bình huyết áp 6 tháng gần nhất:", error);
     throw error;
   }
 };
@@ -188,6 +193,48 @@ export const getAverageTemperature = async () => {
     };
   } catch (error) {
     console.error("Lỗi khi tính trung bình nhiệt độ:", error);
+    throw error;
+  }
+};
+export const getRecentDiagnosisHistory = async () => {
+  try {
+    const jessica = await getJessicaTaylor();
+
+    if (!jessica || !jessica.diagnosis_history) {
+      throw new Error("Không tìm thấy lịch sử chẩn đoán của Jessica Taylor");
+    }
+
+    const monthAbbreviations = {
+      January: "Jan",
+      February: "Feb",
+      March: "Mar",
+      April: "Apr",
+      May: "May",
+      June: "Jun",
+      July: "Jul",
+      August: "Aug",
+      September: "Sep",
+      October: "Oct",
+      November: "Nov",
+      December: "Dec",
+    };
+
+    const sortedHistory = [...jessica.diagnosis_history].sort(
+      (a, b) =>
+        new Date(`${b.month} 1, ${b.year}`) -
+        new Date(`${a.month} 1, ${a.year}`)
+    );
+
+    const recentHistory = sortedHistory.slice(0, 6);
+
+    const formattedHistory = recentHistory.map((record) => ({
+      ...record,
+      month: monthAbbreviations[record.month] || record.month, // Nếu có trong danh sách thì viết tắt, nếu không giữ nguyên
+    }));
+
+    return formattedHistory;
+  } catch (error) {
+    console.error("Lỗi khi lấy 6 tháng chẩn đoán gần nhất:", error);
     throw error;
   }
 };

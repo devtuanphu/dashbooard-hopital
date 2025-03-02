@@ -10,41 +10,18 @@ const Status = ({ averageHeart, averageRespiratory, averageTemperature }) => {
       <div className="grid grid-cols-12 gap-[21px]">
         <div className="col-span-12 xl:col-span-4 bg-[#E0F3FA] rounded-[12px] p-4">
           <img src={Heart} alt="" width={96} height={96} />
-          {averageHeart && (
+          {averageRespiratory && (
             <>
               <div className="py-4">
                 <span className="text-[#072635] text-[16px] font-medium">
                   Respiratory Rate
                 </span>
                 <h2 className="text-[#072635] font-bold text-[32px]">
-                  {averageHeart?.heart_rate?.value} bpm
+                  {averageRespiratory?.respiratory_rate?.value} bpm
                 </h2>
               </div>
               <h5 className="text-[#072635] text-[14px] font-medium">
                 {" "}
-                {averageHeart?.heart_rate?.levels === "Normal"
-                  ? averageHeart?.heart_rate?.levels
-                  : `${checkValueHightLow(averageHeart?.heart_rate?.levels)} ${
-                      averageHeart?.heart_rate?.levels
-                    }`}
-              </h5>
-            </>
-          )}
-        </div>
-        <div className="col-span-12 xl:col-span-4 bg-[#FFE6E9] rounded-[12px] p-4">
-          <img src={Tempreature} alt="" width={96} height={96} />
-          {averageRespiratory && (
-            <>
-              <div className="py-4">
-                <span className="text-[#072635] text-[16px] font-medium">
-                  Temperature
-                </span>
-                <h2 className="text-[#072635] font-bold text-[32px]">
-                  {" "}
-                  {averageRespiratory?.respiratory_rate?.value}°F
-                </h2>
-              </div>
-              <h5 className="text-[#072635] text-[14px] font-medium">
                 {averageRespiratory?.respiratory_rate?.levels === "Normal"
                   ? averageRespiratory?.respiratory_rate?.levels
                   : `${checkValueHightLow(
@@ -54,14 +31,13 @@ const Status = ({ averageHeart, averageRespiratory, averageTemperature }) => {
             </>
           )}
         </div>
-        <div className="col-span-12 xl:col-span-4 bg-[#FFE6F1] rounded-[12px] p-4">
-          <img src={HeartBPM} alt="" width={96} height={96} />
+        <div className="col-span-12 xl:col-span-4 bg-[#FFE6E9] rounded-[12px] p-4">
+          <img src={Tempreature} alt="" width={96} height={96} />
           {averageTemperature && (
             <>
-              {" "}
               <div className="py-4">
                 <span className="text-[#072635] text-[16px] font-medium">
-                  Heart Rate
+                  Temperature
                 </span>
                 <h2 className="text-[#072635] font-bold text-[32px]">
                   {" "}
@@ -74,6 +50,29 @@ const Status = ({ averageHeart, averageRespiratory, averageTemperature }) => {
                   : `${checkValueHightLow(
                       averageTemperature?.temperature?.levels
                     )} ${averageTemperature?.temperature?.levels}`}
+              </h5>
+            </>
+          )}
+        </div>
+        <div className="col-span-12 xl:col-span-4 bg-[#FFE6F1] rounded-[12px] p-4">
+          <img src={HeartBPM} alt="" width={96} height={96} />
+          {averageHeart && (
+            <>
+              <div className="py-4">
+                <span className="text-[#072635] text-[16px] font-medium">
+                  Heart Rate
+                </span>
+                <h2 className="text-[#072635] font-bold text-[32px]">
+                  {" "}
+                  {averageHeart?.heart_rate?.value}°F
+                </h2>
+              </div>
+              <h5 className="text-[#072635] text-[14px] font-medium">
+                {averageHeart?.heart_rate?.levels === "Normal"
+                  ? averageHeart?.heart_rate?.levels
+                  : `${checkValueHightLow(averageHeart?.heart_rate?.levels)} ${
+                      averageHeart?.heart_rate?.levels
+                    }`}
               </h5>
             </>
           )}

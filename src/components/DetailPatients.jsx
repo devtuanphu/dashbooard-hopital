@@ -8,8 +8,6 @@ import TableResults from "./TableResults";
 import { convertDateOfBirth } from "../config/config";
 
 const DetailPatients = ({ jessicaData }) => {
-  console.log(jessicaData);
-
   return (
     <>
       {jessicaData && (
