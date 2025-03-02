@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Avatar } from "antd";
 import IconSearch from "../assets/image/search_FILL0_wght300_GRAD0_opsz24.svg";
-import MoreIcon from "../assets/image/more_horiz_FILL0_wght300_GRAD0_opsz24.png";
+import MoreIcon from "../assets/image/more_horiz_FILL0_wght300_GRAD0_opsz24.svg";
 
 const ListPatients = ({ patients }) => {
   return (
