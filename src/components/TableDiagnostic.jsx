@@ -1,31 +1,9 @@
 import React from "react";
-import { Table } from "antd";
-
-const columns = [
-  {
-    title: "Problem/Diagnosis",
-    dataIndex: "name",
-    key: "name",
-    className: " !text-[#072635] custom-font-family",
-  },
-  {
-    title: "Description",
-    dataIndex: "description",
-    key: "description",
-    className: "!text-[#072635] custom-font-family",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
-    align: "right",
-  },
-];
 
 const TableDiagnostic = ({ diagnosticList }) => {
   if (!diagnosticList || diagnosticList.length === 0) {
     return (
-      <div className="p-6 bg-white rounded-lg shadow-md w-full ">
+      <div className="p-6 bg-white rounded-lg shadow-md w-full">
         <h2 className="text-[24px] font-bold mb-4 text-[#072635]">
           Diagnostic List
         </h2>
@@ -36,26 +14,32 @@ const TableDiagnostic = ({ diagnosticList }) => {
     );
   }
 
-  const formattedData = diagnosticList.map((item, index) => ({
-    key: index + 1,
-    name: item.name,
-    description: item.description,
-    status: item.status,
-  }));
-
   return (
-    <div className="pt-[20px] pb-[10px] px-[20px] bg-white rounded-lg shadow-md w-full">
+    <div className="pt-[20px] pb-[10px] px-[20px] bg-white rounded-lg shadow-md w-full relative">
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">
         Diagnostic List
       </h2>
-      <Table
-        columns={columns}
-        dataSource={formattedData}
-        pagination={false}
-        bordered={false}
-        scroll={{ y: 180 }}
-        className="custom-table"
-      />
+
+      <div className="table-container">
+        <table className="custom-table">
+          <thead>
+            <tr>
+              <th>Problem/Diagnosis</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody className="custom-tbody">
+            {diagnosticList.map((item, index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
+                <td>{item.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

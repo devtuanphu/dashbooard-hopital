@@ -25,11 +25,11 @@ body {
 }
 /* Tùy chỉnh thanh cuộn của Ant Design Table */
 .custom-table .ant-table-body::-webkit-scrollbar {
-  width: 6px; /* Độ rộng thanh cuộn */
+  width: 6px;
 }
 
 .custom-table .ant-table-body::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Màu nền */
+  background: #f1f1f1;
   border-radius: 3px;
 }
 
@@ -67,27 +67,115 @@ body {
 
   border-bottom-left-radius: 24px !important;
 }
-.ant-table-thead .ant-table-cell:nth-last-child(2) {
+.ant-table-thead .ant-table-cell:last-child {
   border-top-right-radius: 24px !important;
   border-bottom-right-radius: 24px !important;
 }
 
-.custom-table .ant-table-cell-scrollbar {
-  display: none !important;
-}
-
-/* Đưa scrollbar vào cột cuối cùng */
-.custom-table .ant-table-body {
-  overflow-y: auto !important;
-}
-
-/* Đảm bảo bảng không bị lệch */
-.custom-table-container {
-  overflow: hidden !important;
-}
 .custom-scrollbar {
   padding-right: 10px;
 }
 :where(.css-dev-only-do-not-override-1v613y0).ant-list .ant-list-item {
   padding: 12px !important;
+}
+.custom-table-wrapper {
+  max-height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.custom-table .ant-table-thead {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.custom-table .ant-table-body {
+  max-height: 140px;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
+  scrollbar-color: #0f2d3e transparent;
+}
+
+.custom-table .ant-table-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-table .ant-table-body::-webkit-scrollbar-thumb {
+  background-color: #0f2d3e;
+  border-radius: 4px;
+}
+
+.custom-table .ant-table-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-table .ant-table-thead::-webkit-scrollbar {
+  display: none !important;
+}
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table thead {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.custom-tbody {
+  display: block;
+  max-height: 180px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.custom-table thead,
+.custom-tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 16px;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #f6f7f8;
+}
+
+.custom-tbody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-tbody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.custom-tbody::-webkit-scrollbar-thumb {
+  background: #0f2d3e;
+  border-radius: 3px;
+}
+
+.custom-tbody::-webkit-scrollbar-thumb:hover {
+  background: #0c1f2b;
+}
+
+.custom-tbody::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.custom-table thead {
+  background-color: #f6f7f8;
+  border-radius: 24px;
+}
+.custom-table tbody tr td {
+  font-size: 14px;
+  padding-left: 22px !important;
 }
