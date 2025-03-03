@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 body {
   background: #f6f7f8;
   font-family: "Manrope", sans-serif;
 }
+
+/* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -20,10 +23,12 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #0c1f2b;
 }
+
 .custom-font-family {
   font-family: "Manrope", sans-serif;
 }
-/* Tùy chỉnh thanh cuộn của Ant Design Table */
+
+/* Customize the scrollbar for Ant Design Table */
 .custom-table .ant-table-body::-webkit-scrollbar {
   width: 6px;
 }
@@ -34,37 +39,36 @@ body {
 }
 
 .custom-table .ant-table-body::-webkit-scrollbar-thumb {
-  background: #0f2d3e; /* Màu thanh kéo */
+  background: #0f2d3e; /* Scrollbar thumb color */
   border-radius: 3px;
 }
 
 .custom-table .ant-table-body::-webkit-scrollbar-thumb:hover {
-  background: #0c1f2b; /* Màu khi hover */
+  background: #0c1f2b; /* Scrollbar thumb hover color */
 }
 
-/* Hỗ trợ Firefox */
+/* Firefox scrollbar support */
 .custom-table .ant-table-body {
   scrollbar-width: thin;
   scrollbar-color: #0f2d3e #f1f1f1;
 }
+
+/* Table cell styles */
 .ant-table-cell {
   padding: 10px !important;
   text-align: start !important;
   padding-left: 15px !important;
-  padding-left: 15px !important;
 }
+
 .ant-table-thead .ant-table-cell {
   padding: 15px !important;
   text-align: start !important;
   font-weight: bold !important;
 }
-.ant-table-thead {
-  border-radius: 24px !important;
-}
 
+/* Add rounded corners to the first column of the table header */
 .ant-table-thead .ant-table-cell:first-child {
   border-top-left-radius: 24px !important;
-
   border-bottom-left-radius: 24px !important;
 }
 .ant-table-thead .ant-table-cell:last-child {
@@ -75,6 +79,8 @@ body {
 .custom-scrollbar {
   padding-right: 10px;
 }
+
+/* Adjust list item padding */
 :where(.css-dev-only-do-not-override-1v613y0).ant-list .ant-list-item {
   padding: 12px !important;
 }
