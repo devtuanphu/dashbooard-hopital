@@ -154,6 +154,10 @@ body {
   border-bottom: 1px solid #f6f7f8;
 }
 
+.custom-table thead th {
+  border-bottom: none !important;
+}
+
 .custom-tbody::-webkit-scrollbar {
   width: 6px;
 }
