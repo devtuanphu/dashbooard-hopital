@@ -21,8 +21,11 @@ const TableResults = ({ lab_results }) => {
         <table className="custom-table">
           <tbody className="custom-tbody">
             {lab_results.map((item, index) => (
-              <tr key={index}>
-                <td className="flex justify-between items-center w-full">
+              <tr
+                key={index}
+                className="hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                <td className="flex justify-between items-center w-full px-4 py-2">
                   <span>{item}</span>
                   <button className="text-[#072635] hover:text-blue-500">
                     <img src={IconDown} alt="Download" />

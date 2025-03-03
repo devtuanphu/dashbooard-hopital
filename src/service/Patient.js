@@ -1,34 +1,37 @@
 const API_URL = import.meta.env.VITE_BASE_API_URL;
 
+// Function to generate the Basic Auth header using environment variables
 const getAuthHeader = () => {
   const username = import.meta.env.VITE_USERNAME_AUTH;
   const password = import.meta.env.VITE_PASSWORD_AUTH;
-  const auth = btoa(`${username}:${password}`);
+  const auth = btoa(`${username}:${password}`); // Encode username and password
 
   return auth;
 };
 
+// Fetch all patients from the API
 export const getAllPatients = async () => {
   try {
     const response = await fetch(API_URL, {
       method: "GET",
       headers: {
-        Authorization: `Basic ${getAuthHeader()}`,
+        Authorization: `Basic ${getAuthHeader()}`, // Attach authorization header
         "Content-Type": "application/json",
       },
     });
 
     if (!response.ok) {
-      throw new Error(`Lỗi HTTP! Status: ${response.status}`);
+      throw new Error(`HTTP Error! Status: ${response.status}`);
     }
 
     return await response.json();
   } catch (error) {
-    console.error("Lỗi khi lấy dữ liệu bệnh nhân:", error);
+    console.error("Error fetching patient data:", error);
     throw error;
   }
 };
 
+// Fetch the details of a patient named Jessica Taylor
 export const getJessicaTaylor = async () => {
   try {
     const patients = await getAllPatients();
@@ -38,34 +41,35 @@ export const getJessicaTaylor = async () => {
     );
 
     if (!jessica) {
-      throw new Error("Không tìm thấy dữ liệu của Jessica Taylor");
+      throw new Error("Jessica Taylor's data not found");
     }
 
     return jessica;
   } catch (error) {
-    console.error("Lỗi khi lấy thông tin Jessica Taylor:", error);
+    console.error("Error fetching Jessica Taylor's information:", error);
     throw error;
   }
 };
 
+// Calculate the average blood pressure over the last 6 months
 export const getAverageBloodPressure = async () => {
   try {
     const recentRecords = await getRecentDiagnosisHistory();
 
     if (!recentRecords || recentRecords.length === 0) {
-      throw new Error("Không có dữ liệu huyết áp trong 6 tháng gần nhất");
+      throw new Error("No blood pressure data available in the last 6 months");
     }
 
+    // Filter records that contain blood pressure data
     const bloodPressureRecords = recentRecords.filter(
       (record) => record.blood_pressure
     );
 
     if (bloodPressureRecords.length === 0) {
-      throw new Error(
-        "Không có dữ liệu huyết áp hợp lệ trong 6 tháng gần nhất"
-      );
+      throw new Error("No valid blood pressure data in the last 6 months");
     }
 
+    // Calculate average systolic and diastolic blood pressure
     const totalSystolic = bloodPressureRecords.reduce(
       (sum, record) => sum + record.blood_pressure.systolic.value,
       0
@@ -91,16 +95,17 @@ export const getAverageBloodPressure = async () => {
       },
     };
   } catch (error) {
-    console.error("Lỗi khi tính trung bình huyết áp 6 tháng gần nhất:", error);
+    console.error("Error calculating average blood pressure:", error);
     throw error;
   }
 };
 
+// Calculate the average heart rate for Jessica Taylor
 export const getAverageHeartRate = async () => {
   try {
     const jessica = await getJessicaTaylor();
     if (!jessica || !jessica.diagnosis_history) {
-      throw new Error("Không tìm thấy lịch sử chẩn đoán của Jessica Taylor");
+      throw new Error("Jessica Taylor's diagnosis history not found");
     }
 
     const heartRateRecords = jessica.diagnosis_history.filter(
@@ -108,7 +113,7 @@ export const getAverageHeartRate = async () => {
     );
 
     if (heartRateRecords.length === 0) {
-      throw new Error("Không có dữ liệu nhịp tim hợp lệ");
+      throw new Error("No valid heart rate data available");
     }
 
     const totalHeartRate = heartRateRecords.reduce(
@@ -124,15 +129,17 @@ export const getAverageHeartRate = async () => {
       },
     };
   } catch (error) {
-    console.error("Lỗi khi tính trung bình nhịp tim:", error);
+    console.error("Error calculating average heart rate:", error);
     throw error;
   }
 };
+
+// Calculate the average respiratory rate for Jessica Taylor
 export const getAverageRespiratoryRate = async () => {
   try {
     const jessica = await getJessicaTaylor();
     if (!jessica || !jessica.diagnosis_history) {
-      throw new Error("Không tìm thấy lịch sử chẩn đoán của Jessica Taylor");
+      throw new Error("Jessica Taylor's diagnosis history not found");
     }
 
     const respiratoryRateRecords = jessica.diagnosis_history.filter(
@@ -140,7 +147,7 @@ export const getAverageRespiratoryRate = async () => {
     );
 
     if (respiratoryRateRecords.length === 0) {
-      throw new Error("Không có dữ liệu nhịp thở hợp lệ");
+      throw new Error("No valid respiratory rate data available");
     }
 
     const totalRespiratoryRate = respiratoryRateRecords.reduce(
@@ -157,16 +164,17 @@ export const getAverageRespiratoryRate = async () => {
       },
     };
   } catch (error) {
-    console.error("Lỗi khi tính trung bình nhịp thở:", error);
+    console.error("Error calculating average respiratory rate:", error);
     throw error;
   }
 };
 
+// Calculate the average body temperature for Jessica Taylor
 export const getAverageTemperature = async () => {
   try {
     const jessica = await getJessicaTaylor();
     if (!jessica || !jessica.diagnosis_history) {
-      throw new Error("Không tìm thấy lịch sử chẩn đoán của Jessica Taylor");
+      throw new Error("Jessica Taylor's diagnosis history not found");
     }
 
     const temperatureRecords = jessica.diagnosis_history.filter(
@@ -174,7 +182,7 @@ export const getAverageTemperature = async () => {
     );
 
     if (temperatureRecords.length === 0) {
-      throw new Error("Không có dữ liệu nhiệt độ hợp lệ");
+      throw new Error("No valid temperature data available");
     }
 
     const totalTemperature = temperatureRecords.reduce(
@@ -185,21 +193,23 @@ export const getAverageTemperature = async () => {
 
     return {
       temperature: {
-        value: parseFloat(averageTemperature.toFixed(1)), // Giữ 1 chữ số sau dấu thập phân
+        value: parseFloat(averageTemperature.toFixed(1)), // Keep one decimal place
         levels: temperatureRecords[0].temperature.levels,
       },
     };
   } catch (error) {
-    console.error("Lỗi khi tính trung bình nhiệt độ:", error);
+    console.error("Error calculating average temperature:", error);
     throw error;
   }
 };
+
+// Fetch the most recent 6-month diagnosis history for Jessica Taylor
 export const getRecentDiagnosisHistory = async () => {
   try {
     const jessica = await getJessicaTaylor();
 
     if (!jessica || !jessica.diagnosis_history) {
-      throw new Error("Không tìm thấy lịch sử chẩn đoán của Jessica Taylor");
+      throw new Error("Jessica Taylor's diagnosis history not found");
     }
 
     const monthAbbreviations = {
@@ -217,22 +227,25 @@ export const getRecentDiagnosisHistory = async () => {
       December: "Dec",
     };
 
+    // Sort history by most recent dates
     const sortedHistory = [...jessica.diagnosis_history].sort(
       (a, b) =>
         new Date(`${b.month} 1, ${b.year}`) -
         new Date(`${a.month} 1, ${a.year}`)
     );
 
+    // Get the latest 6 records
     const recentHistory = sortedHistory.slice(0, 6);
 
+    // Convert months to abbreviations
     const formattedHistory = recentHistory.map((record) => ({
       ...record,
-      month: monthAbbreviations[record.month] || record.month, // Nếu có trong danh sách thì viết tắt, nếu không giữ nguyên
+      month: monthAbbreviations[record.month] || record.month,
     }));
 
     return formattedHistory;
   } catch (error) {
-    console.error("Lỗi khi lấy 6 tháng chẩn đoán gần nhất:", error);
+    console.error("Error fetching recent 6-month diagnosis history:", error);
     throw error;
   }
 };
