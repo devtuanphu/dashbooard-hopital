@@ -18,7 +18,7 @@ const TableResults = ({ lab_results }) => {
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">Lab Results</h2>
 
       <div className="custom-table-container">
-        <table className="custom-table">
+        <table className="custom-table custom-table-results">
           <tbody className="custom-tbody">
             {lab_results.map((item, index) => (
               <tr

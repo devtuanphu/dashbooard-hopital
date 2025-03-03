@@ -13,6 +13,7 @@ import {
   Legend,
 } from "chart.js";
 
+// Registering necessary Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,24 +25,29 @@ ChartJS.register(
 );
 
 const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
+  // State to store the data for the chart
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [],
   });
-  console.log(diagnosisHistory);
+
+  console.log(diagnosisHistory); // Debugging log to check diagnosis history data
 
   useEffect(() => {
     if (diagnosisHistory && diagnosisHistory.length > 0) {
+      // Sorting history by date in ascending order
       const sortedHistory = [...diagnosisHistory].sort(
         (a, b) =>
           new Date(`${a.month} 1, ${a.year}`) -
           new Date(`${b.month} 1, ${b.year}`)
       );
 
+      // Extracting labels for x-axis (months and years)
       const labels = sortedHistory.map(
         (record) => `${record.month}, ${record.year}`
       );
 
+      // Extracting systolic and diastolic blood pressure values
       const systolicValues = sortedHistory.map(
         (record) => record.blood_pressure?.systolic?.value || null
       );
@@ -49,6 +55,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
         (record) => record.blood_pressure?.diastolic?.value || null
       );
 
+      // Setting chart data
       setChartData({
         labels,
         datasets: [
@@ -62,7 +69,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
             borderWidth: 2,
             pointRadius: 6,
             pointHoverRadius: 8,
-            tension: 0.4,
+            tension: 0.4, // Smoother curve
             fill: false,
           },
           {
@@ -75,14 +82,15 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
             borderWidth: 2,
             pointRadius: 6,
             pointHoverRadius: 8,
-            tension: 0.4,
+            tension: 0.4, // Smoother curve
             fill: false,
           },
         ],
       });
     }
-  }, [diagnosisHistory]);
+  }, [diagnosisHistory]); // Runs effect when diagnosisHistory changes
 
+  // Chart configuration options
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -100,8 +108,8 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
     scales: {
       x: { grid: { display: true, color: "#e5e7eb" } },
       y: {
-        min: 60,
-        max: 180,
+        min: 60, // Minimum value for y-axis
+        max: 180, // Maximum value for y-axis
         ticks: { stepSize: 20 },
         grid: { display: true, color: "#e5e7eb" },
       },
@@ -109,29 +117,34 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
   };
 
   return (
-    <div className="p-[16px] bg-[#F4F0FE] rounded-lg shadow-md w-full flex flex-col gap-4">
+    <div className="p-[16px] bg-[#F4F0FE] rounded-lg w-full flex flex-col gap-4">
       <div className="grid grid-cols-3 gap-4">
+        {/* Chart Section */}
         <div className="col-span-3 md:col-span-2">
           <div className="pb-4 flex justify-between">
             <h5 className="text-[18px] font-bold text-[#072635]">
               Blood Pressure
             </h5>
-            <div className="mr-[20px] ">
+            <div className="mr-[20px]">
               <div className="flex items-center">
                 <span className="mr-4 text-[14px] text-[#072635 ]">
                   Last 6 months
-                </span>{" "}
-                <img src={IconArrowDown} alt="" />
+                </span>
+                <img src={IconArrowDown} alt="Expand" />
               </div>
             </div>
           </div>
+          {/* Blood Pressure Line Chart */}
           <div className="h-[253px]">
             <Line data={chartData} options={options} />
           </div>
         </div>
+
+        {/* Blood Pressure Data Display */}
         <div className="col-span-3 md:col-span-1">
           {blood_pressure && (
             <>
+              {/* Systolic Blood Pressure */}
               <div className="pb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-[14px] h-[14px] rounded-full bg-[#E66FD2]"></div>
@@ -150,6 +163,8 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
                       )} ${blood_pressure?.blood_pressure?.systolic?.levels}`}
                 </div>
               </div>
+
+              {/* Diastolic Blood Pressure */}
               <div className="border-t border-gray-300 pt-4">
                 <div className="flex items-center gap-2">
                   <div className="w-[14px] h-[14px] rounded-full bg-[#8C6FE6]"></div>

@@ -15,7 +15,7 @@ const TableDiagnostic = ({ diagnosticList }) => {
   }
 
   return (
-    <div className="pt-[20px] pb-[10px] px-[20px] bg-white rounded-lg shadow-md w-full relative">
+    <div className="pt-[20px] pb-[10px] px-[20px] bg-white rounded-[16px] shadow-md w-full relative">
       <h2 className="text-[24px] font-bold mb-4 text-[#072635]">
         Diagnostic List
       </h2>

@@ -84,6 +84,7 @@ body {
 :where(.css-dev-only-do-not-override-1v613y0).ant-list .ant-list-item {
   padding: 12px !important;
 }
+
 .custom-table-wrapper {
   max-height: 180px;
   overflow: hidden;
@@ -172,10 +173,6 @@ body {
   border-radius: 3px;
 }
 
-.custom-tbody::-webkit-scrollbar-thumb:hover {
-  background: #0c1f2b;
-}
-
 .custom-tbody::-webkit-scrollbar-button {
   display: none;
   height: 0;
@@ -191,4 +188,12 @@ body {
 .custom-table tbody tr td {
   font-size: 14px;
   padding-left: 22px !important;
+}
+
+.custom-table-results tr {
+  border-bottom: none !important;
+}
+
+.custom-table-results td {
+  border-bottom: none !important;
 }
