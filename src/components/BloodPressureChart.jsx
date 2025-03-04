@@ -67,8 +67,9 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
             pointBackgroundColor: "#E66FD2",
             pointBorderColor: "#fff",
             borderWidth: 2,
-            pointRadius: 6,
-            pointHoverRadius: 8,
+            pointRadius: 8,
+            pointHoverRadius: 10,
+            pointBorderWidth: 1,
             tension: 0.4, // Smoother curve
             fill: false,
           },
@@ -80,8 +81,9 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
             pointBackgroundColor: "#8C6FE6",
             pointBorderColor: "#fff",
             borderWidth: 2,
-            pointRadius: 6,
-            pointHoverRadius: 8,
+            pointRadius: 8,
+            pointHoverRadius: 10,
+            pointBorderWidth: 1,
             tension: 0.4, // Smoother curve
             fill: false,
           },
@@ -148,7 +150,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
               <div className="pb-4">
                 <div className="flex items-center gap-2">
                   {/* White background wrapper */}
-                  <div className="w-[18px] h-[18px] flex items-center justify-center bg-white rounded-full shadow">
+                  <div className="w-[16px] h-[16px] flex items-center justify-center bg-white rounded-full shadow">
                     {/* Inner colored circle */}
                     <div className="w-[14px] h-[14px] rounded-full bg-[#E66FD2]"></div>
                   </div>
@@ -172,7 +174,7 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
               <div className="border-t border-gray-300 pt-4">
                 <div className="flex items-center gap-2">
                   {/* White background wrapper */}
-                  <div className="w-[18px] h-[18px] flex items-center justify-center bg-white rounded-full shadow">
+                  <div className="w-[16px] h-[16px] flex items-center justify-center bg-white rounded-full shadow">
                     {/* Inner colored circle */}
                     <div className="w-[14px] h-[14px] rounded-full bg-[#8C6FE6]"></div>
                   </div>
