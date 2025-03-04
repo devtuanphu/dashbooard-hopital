@@ -147,7 +147,11 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
               {/* Systolic Blood Pressure */}
               <div className="pb-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-[14px] h-[14px] rounded-full bg-[#E66FD2]"></div>
+                  {/* White background wrapper */}
+                  <div className="w-[18px] h-[18px] flex items-center justify-center bg-white rounded-full shadow">
+                    {/* Inner colored circle */}
+                    <div className="w-[14px] h-[14px] rounded-full bg-[#E66FD2]"></div>
+                  </div>
                   <span className="text-[#072635] font-bold text-[14px]">
                     Systolic
                   </span>
@@ -167,7 +171,11 @@ const BloodPressureChart = ({ blood_pressure, diagnosisHistory }) => {
               {/* Diastolic Blood Pressure */}
               <div className="border-t border-gray-300 pt-4">
                 <div className="flex items-center gap-2">
-                  <div className="w-[14px] h-[14px] rounded-full bg-[#8C6FE6]"></div>
+                  {/* White background wrapper */}
+                  <div className="w-[18px] h-[18px] flex items-center justify-center bg-white rounded-full shadow">
+                    {/* Inner colored circle */}
+                    <div className="w-[14px] h-[14px] rounded-full bg-[#8C6FE6]"></div>
+                  </div>
                   <span className="text-[#072635] font-bold text-[14px]">
                     Diastolic
                   </span>

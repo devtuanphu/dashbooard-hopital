@@ -19,11 +19,11 @@ const TableResults = ({ lab_results }) => {
 
       <div className="custom-table-container">
         <table className="custom-table custom-table-results">
-          <tbody className="custom-tbody">
+          <tbody className="custom-tbody pr-1">
             {lab_results.map((item, index) => (
               <tr
                 key={index}
-                className="hover:bg-gray-100 transition-colors cursor-pointer"
+                className="hover:bg-[#F6F7F8] transition-colors cursor-pointer"
               >
                 <td className="flex justify-between items-center w-full px-4 py-2">
                   <span>{item}</span>

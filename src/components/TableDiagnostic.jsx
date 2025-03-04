@@ -29,7 +29,7 @@ const TableDiagnostic = ({ diagnosticList }) => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody className="custom-tbody">
+          <tbody className="custom-tbody pr-2">
             {diagnosticList.map((item, index) => (
               <tr key={index}>
                 <td>{item.name}</td>
