@@ -101,7 +101,7 @@ const DetailPatients = ({ jessicaData }) => {
                 </button>
               </div>
             </div>
-            <div className="pt-[20px]">
+            <div className="pt-[32px]">
               <TableResults lab_results={jessicaData?.lab_results} />
             </div>
           </div>

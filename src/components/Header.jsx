@@ -14,7 +14,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="p-[18px] h-[12vh]">
+    <div className="p-[18px]">
       <div className="bg-white rounded-[70px]">
         <div className="flex justify-between items-center px-[32px] py-[12px]">
           <div>

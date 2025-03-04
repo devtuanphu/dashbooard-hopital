@@ -92,7 +92,7 @@ const MainContent = ({ jessicaData }) => {
         </div>
       </div>
 
-      <div className="py-[20px] xl:flex-1 ">
+      <div className="py-[32px] xl:flex-1 ">
         <TableDiagnostic diagnosticList={diagnosticList} />
       </div>
     </div>

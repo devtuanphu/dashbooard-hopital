@@ -7,7 +7,7 @@ const ListPatients = ({ patients }) => {
   const [selectedPatient, setSelectedPatient] = useState(null);
 
   return (
-    <div className=" bg-white rounded-[16px] shadow-md w-full">
+    <div className="bg-white rounded-[16px] shadow-md w-full ">
       {/* Header section with title and search icon */}
       <div className=" bg-white z-10 rounded-[16px] p-[20px]">
         <div className="flex justify-between items-center ">
@@ -17,7 +17,7 @@ const ListPatients = ({ patients }) => {
       </div>
 
       {/* Scrollable patient list container with padding-bottom */}
-      <div className="xl:max-h-[930px] overflow-y-auto custom-scrollbar mb-[30px] mr-[5px]  ">
+      <div className="xl:max-h-[945px] overflow-y-auto custom-scrollbar mb-[30px] mr-[5px]  ">
         <List
           itemLayout="horizontal"
           dataSource={patients}
