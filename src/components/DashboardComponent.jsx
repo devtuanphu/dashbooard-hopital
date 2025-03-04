@@ -31,7 +31,7 @@ const DashboardComponent = () => {
 
   return (
     <div className="grid grid-cols-12 gap-[32px]  h-full grid-rows-1">
-      <div className="order-2 xl:order-0 col-span-12 xl:col-span-3 flex flex-col h-full mt-4">
+      <div className="order-0 xl:order-0 col-span-12 xl:col-span-3 flex flex-col h-full mt-4">
         <ListPatients patients={patients} />
       </div>
 

@@ -3,7 +3,7 @@ import DashboardComponent from "../components/DashboardComponent";
 
 const DashBoard = () => {
   return (
-    <div className="px-[18px] ">
+    <div className="px-[18px]">
       <DashboardComponent />
     </div>
   );

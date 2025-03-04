@@ -7,7 +7,7 @@ const ListPatients = ({ patients }) => {
   const [selectedPatient, setSelectedPatient] = useState(null);
 
   return (
-    <div className="bg-white rounded-[16px] shadow-md w-full ">
+    <div className="bg-white rounded-[16px] shadow-md w-full">
       {/* Header section with title and search icon */}
       <div className=" bg-white z-10 rounded-[16px] p-[20px]">
         <div className="flex justify-between items-center ">
